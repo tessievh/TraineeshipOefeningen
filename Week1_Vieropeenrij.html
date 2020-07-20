@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html>
+<head>
+
+<script>
+
+var counterkolom = [0,0,0,0,0,0,0];
+var speler = 0;
+
+
+	function latenvallen( kolom ){
+		if (counterkolom[kolom] < 6){
+            var color; 
+		    if(speler == 0){
+			    color = 'red';
+			    speler = 1;
+		}
+        else{
+			color = 'yellow';
+			speler = 0;
+		}
+        // console.log(kolom,counterkolom[kolom]);
+		document.getElementById("vakje"+kolom +"-"+ counterkolom[kolom]).style.backgroundColor = color;
+		counterkolom[kolom]++;
+        gewonnen(kolom);
+        }
+        else {
+            alert("rij is vol");
+        }        
+    }
+     
+        function gewonnen(kolom){
+           var schijven = 0;
+       
+            //check horizontaal
+           for (i = 0 ; i < 7 ; i++) {
+               if (counterkolom[i] > 0) {
+                    // check speler = maak array en gebruik indexOf()?
+                    // check aaneensluitend dezelfde kleur
+                        schijven++
+                        if (schijven == 4) {
+                        alert("Gefeliciteerd, je hebt gewonnen!")
+                    }
+               else { 
+                   schijven = 0; }
+                }
+           }
+           
+           // check verticaal
+           for (i = 0; i < 6; i++ ) {
+            if (counterkolom[kolom] > 3){
+                alert("Gefeliciteerd, je hebt gewonnen!");
+                } 
+            } 
+        } 
+               
+           
+    
+        
+</script>
+
+<style>
+    table, tr,td {border-style: outset; 
+            border-color: black;
+            border: width 5px;
+            column-width: 30px;
+    }   
+
+    td {
+        padding: 50px;
+    }  
+   
+    table {
+    overflow: hidden;
+    z-index: 1;
+}
+
+td, th {
+    padding: 10px;
+    position: relative;
+}
+
+td:hover::after { 
+    background-color: silver;
+    content: '\00a0';  
+    height: 10000px;    
+    left: 0;
+    position: absolute;  
+    top: -5000px;
+    width: 100%;
+    z-index: -1;        
+}
+</style>
+</head>
+<body>
+  
+	<table>
+		 <tr>
+			<td id=vakje0-5 onclick=latenvallen(0)></td>
+			<td id=vakje1-5 onclick=latenvallen(1)></td>
+			<td id=vakje2-5 onclick=latenvallen(2)></td>
+			<td id=vakje3-5 onclick=latenvallen(3)></td>
+            <td id=vakje4-5 onclick=latenvallen(4)></td>
+            <td id=vakje5-5 onclick=latenvallen(5)></td>
+            <td id=vakje6-5 onclick=latenvallen(6)></td>
+		</tr>
+        <tr>
+			<td id=vakje0-4 onclick=latenvallen(0)></td>
+			<td id=vakje1-4 onclick=latenvallen(1)></td>
+			<td id=vakje2-4 onclick=latenvallen(2)></td>
+			<td id=vakje3-4 onclick=latenvallen(3)></td>
+            <td id=vakje4-4 onclick=latenvallen(4)></td>
+            <td id=vakje5-4 onclick=latenvallen(5)></td>
+            <td id=vakje6-4 onclick=latenvallen(6)></td>
+		</tr>
+        <tr>
+			<td id=vakje0-3 onclick=latenvallen(0)></td>
+			<td id=vakje1-3 onclick=latenvallen(1)></td>
+			<td id=vakje2-3 onclick=latenvallen(2)></td>
+			<td id=vakje3-3 onclick=latenvallen(3)></td>
+            <td id=vakje4-3 onclick=latenvallen(4)></td>
+            <td id=vakje5-3 onclick=latenvallen(5)></td>
+            <td id=vakje6-3 onclick=latenvallen(6)></td>
+		</tr>
+        <tr>
+			<td id=vakje0-2 onclick=latenvallen(0)></td>
+			<td id=vakje1-2 onclick=latenvallen(1)></td>
+			<td id=vakje2-2 onclick=latenvallen(2)></td>
+			<td id=vakje3-2 onclick=latenvallen(3)></td>
+            <td id=vakje4-2 onclick=latenvallen(4)></td>
+            <td id=vakje5-2 onclick=latenvallen(5)></td>
+            <td id=vakje6-2 onclick=latenvallen(6)></td>
+		</tr>
+        <tr>
+			<td id=vakje0-1 onclick=latenvallen(0)></td>
+			<td id=vakje1-1 onclick=latenvallen(1)></td>
+			<td id=vakje2-1 onclick=latenvallen(2)></td>
+			<td id=vakje3-1 onclick=latenvallen(3)></td>
+            <td id=vakje4-1 onclick=latenvallen(4)></td>
+            <td id=vakje5-1 onclick=latenvallen(5)></td>
+            <td id=vakje6-1 onclick=latenvallen(6)></td>
+		</tr>
+        <tr>
+			<td id=vakje0-0 onclick=latenvallen(0)></td>
+			<td id=vakje1-0 onclick=latenvallen(1)></td>
+			<td id=vakje2-0 onclick=latenvallen(2)></td>
+			<td id=vakje3-0 onclick=latenvallen(3)></td>
+            <td id=vakje4-0 onclick=latenvallen(4)></td>
+            <td id=vakje5-0 onclick=latenvallen(5)></td>
+            <td id=vakje6-0 onclick=latenvallen(6)></td>
+		</tr>
+	</table> 
+
+</body>
+</html>

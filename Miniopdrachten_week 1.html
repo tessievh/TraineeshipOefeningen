@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+      // Mini-opdracht 1
+
+        function compareStr() {
+            var mijntekst = document.getElementById("mijntekst").value;
+            var welkom = "hallo"
+            var vergelijking;
+            if (vergelijking = mijntekst.localeCompare("hallo") == 0) {
+                alert("Welkom!");
+            }
+            else if (vergelijking = mijntekst.localeCompare("doei") == 0) {
+                alert("Tot de volgende keer!");
+            }
+        }
+      
+
+// Mini-opdracht 2
+
+    function checkforE() {
+            var tekst2 = document.getElementById("tekst2").value;
+            var searchE = tekst2.search('e');
+            if (indexE >= 0){
+                alert("E gevonden!");
+            } 
+        }
+    
+// Mini-opdracht 3
+
+    function checkforMultipleE() {
+        var tekst3 = document.getElementById("tekst3").value;
+        var Ecounter = tekst3.match(/e/gi).length;
+        alert("Er zijn " + Ecounter +"E's gevonden!");
+    }
+
+    function checkforX(){
+        var tekst4 = document.getElementById("tekst4").value;
+        var tekst5 = document.getElementById("tekst5").value;
+
+        var letter = new RegExp(tekst4, "g");
+        var counter = tekst5.match(letter).length;
+        alert("Er zijn " + counter + " " + tekst4 + "'s gevonden!");
+    }
+
+// Mini-opdracht 4
+
+    function button(knop) {
+    
+        if (knop == 1){
+            document.getElementById("history").innerHTML = ("U heeft op knop A geklikt!") ;
+        }    
+        if (knop == 2){
+            document.getElementById("history").innerHTML = ("U heeft op knop B geklikt!") ;
+        }  
+        if (knop == 3){
+            document.getElementById("history").innerHTML = ("U heeft op knop C geklikt!") ;
+        }  
+       if (knop == 4){
+            document.getElementById("history").innerHTML = ("U heeft op knop D geklikt!") ;
+        }  
+    }
+
+ // Mini-opdracht 5
+    
+    function trackButton(knop) {
+   
+    if (knop == 1){
+        document.getElementById("tracker").innerHTML = ("U heeft op knop A geklikt!") ;
+        var ACounter = 0;
+        var element = document.getElementById("button1");
+        element.onclick = function() {
+            ACounter++;
+            alert("U heeft al " + ACounter + " keer op A geklikt!");
+            }
+        }
+
+        if (knop == 2){
+        document.getElementById("tracker").innerHTML = ("U heeft op knop B geklikt!") ;
+        var BCounter = 0;
+        var element = document.getElementById("button2");
+        element.onclick = function() {
+            BCounter++;
+            alert("U heeft al " + BCounter + " keer op B geklikt!");
+            }
+        }
+
+        if (knop == 3){
+        document.getElementById("tracker").innerHTML = ("U heeft op knop C geklikt!") ;
+        var CCounter = 0;
+        var element = document.getElementById("button3");
+        element.onclick = function() {
+            CCounter++;
+            alert("U heeft al " + CCounter + " keer op C geklikt!");
+            }
+        }
+
+        if (knop == 4){
+        document.getElementById("tracker").innerHTML = ("U heeft op knop D geklikt!") ;
+        var DCounter = 0;
+        var element = document.getElementById("button4");
+        element.onclick = function() {
+            DCounter++;
+            alert("U heeft al " + DCounter + " keer op D geklikt!");
+            }
+        }
+
+    }
+
+    
+// Mini-opdracht 6
+
+// Zit nog een bug in, aan het begin 2x klikken voor foto verandert. Werkt daarna wel 
+
+function changeImage(){
+
+    var changeSource = "Zomer.jpg";
+    var element = document.getElementById("switch");
+    var jaarCounter = 0;
+
+    element.onclick = function() {
+     if (changeSource == "Zomer.jpg"){
+          document.getElementById("seizoen").src = "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60";
+          changeSource = "Herfst.jpg";
+         }  
+
+       else if (changeSource == "Herfst.jpg"){
+            document.getElementById("seizoen").src = "https://images.unsplash.com/photo-1507371341162-763b5e419408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60";
+            changeSource = "Winter.jpg";
+        }
+       else if (changeSource == "Winter.jpg") {
+            document.getElementById("seizoen").src = "https://images.unsplash.com/photo-1491002052546-bf38f186af56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1083&q=80";
+            changeSource = "Lente.jpg";
+        }
+      else if (changeSource == "Lente.jpg") {
+            document.getElementById("seizoen").src = "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80";
+            changeSource = "Zomer.jpg";
+            jaarCounter++;
+            if (jaarCounter >= 1) {
+            document.getElementById("jaren").innerHTML = ("Er is nu " + jaarCounter + " jaar voorbij!") ;
+            }
+        }
+    }
+}
+
+</script>
+<style>
+body{
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color: blue;
+}
+
+</style>
+
+
+</head>
+<body>
+    <h1>Miniopdrachten Week 1</h1>
+ <!-- Opdracht 1 -->
+ <h3> Opdracht 1 </h3>
+<input type=text id="mijntekst">
+<button onclick= "compareStr()">Enter</button>
+<div id= divider>_________________________________________________________</div>
+
+ <!-- Opdracht 2 -->
+ <h3> Opdracht 2 </h3>
+ <input type=text id="tekst2">
+ <button onclick= "checkforE()">Check for E!</button>
+ <div id= divider>_________________________________________________________</div>
+
+ <!-- Opdracht 3 -->
+ <h3> Opdracht 3 </h3>
+ <input type=text id="tekst3">
+ <button onclick= "checkforMultipleE()">Check for E!</button>
+ <br><br>
+ Letter:  
+ <input type=text id="tekst4">
+ <br> Woord:
+ <input type=text id="tekst5">
+ <button onclick= "checkforX()">Check!</button>
+ <div id= divider>_________________________________________________________</div>
+ 
+
+ <!-- Opdracht 4 -->
+ <h3> Opdracht 4 </h3>
+ <button id=button onclick="button(1)">A</button>
+ <button id=button onclick="button(2)">B</button> 
+ <button id=button onclick="button(3)">C</button>
+ <button id=button onclick="button(4)">D</button> 
+ <br><br>  <div id= 'history'></div>
+ <div id= divider>_________________________________________________________</div>
+
+  <!-- Opdracht 5 -->
+  <h3> Opdracht 5 </h3>
+
+  <button id=button1 onclick="trackButton(1)">A</button> 
+  <button id=button2 onclick="trackButton(2)">B</button> 
+  <button id=button3 onclick="trackButton(3)">C</button> 
+  <button id=button4 onclick="trackButton(4)">D</button> 
+  <br><br>
+  <div id= 'tracker'></div>
+  <div id= divider>_________________________________________________________</div>
+
+  <!-- Opdracht 6 -->
+  <h3> Opdracht 6 </h3>
+  <button id=switch onclick="changeImage()">Switch!</button> <br>
+  <div id="jaren"></div>
+  <img id="seizoen" onclick="changeImage()" width="600" height="400" src= "Zomer.jpg"></img>
+
+
+</body>
+</html>
